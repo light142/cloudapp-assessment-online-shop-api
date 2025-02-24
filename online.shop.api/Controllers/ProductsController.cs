@@ -23,7 +23,16 @@ namespace online.shop.api.Controllers
                 )
             )
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+                    // If there's an error connecting to the DB, return the error view
+                    return View("Error");
+                }
+
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM products", conn);
                 using (var reader = cmd.ExecuteReader())
                 {

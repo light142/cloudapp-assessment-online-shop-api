@@ -19379,6 +19379,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\ManageProducts.cshtml",
       "TargetPath": "Views\\Admin\\ManageProducts.cshtml",
       "FileKind": "mvc"
