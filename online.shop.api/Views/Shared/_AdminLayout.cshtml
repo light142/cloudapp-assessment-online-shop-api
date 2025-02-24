@@ -1,0 +1,27 @@
+@{
+    Layout = "_Layout";
+}
+
+<!-- Admin Sidebar -->
+<div class="admin-sidebar">
+    <h2 class="sidebar-title">Admin Panel</h2>
+    <ul>
+        <li><a href="@Url.Action("Index", "Admin")" class="sidebar-link">Dashboard</a></li>
+        <li><a href="@Url.Action("ManageUsers", "Admin")" class="sidebar-link">Manage Users</a></li>
+        <li><a href="@Url.Action("ManageProducts", "Admin")" class="sidebar-link">Manage Products</a></li>
+    </ul>
+</div>
+
+<!-- Admin Content Area -->
+<div class="admin-content">
+    <!-- Header with Admin Name or Role -->
+    <div class="admin-header">
+        <h1>Welcome, Admin</h1>
+        <div class="user-info">
+            Logged in as: <strong>@User.Identity.Name</strong>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    @RenderBody() <!-- Placeholder for the individual pages like dashboard, manage users, manage products, etc. -->
+</div>

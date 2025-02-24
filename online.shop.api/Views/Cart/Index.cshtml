@@ -1,5 +1,9 @@
 @model List<online.shop.api.Models.CartItem>
 
+@{
+    ViewData["Title"] = "Cart";
+}
+
 <h2>Your Shopping Cart</h2>
 
 @if (!Model.Any())

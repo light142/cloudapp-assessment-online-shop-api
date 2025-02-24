@@ -1,7 +1,5 @@
 using MySql.Data.MySqlClient;
 using online.shop.api.Models;
-using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
 
 namespace online.shop.api.Services
 {
@@ -14,25 +12,54 @@ namespace online.shop.api.Services
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
+        // Create a new product
+        public void CreateProduct(Product product)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query =
+                    @"INSERT INTO products (Name, Description, Price, ImageUrl) 
+                              VALUES (@Name, @Description, @Price, @ImageUrl)";
+
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", product.Name);
+                    cmd.Parameters.AddWithValue("@Description", product.Description);
+                    cmd.Parameters.AddWithValue("@Price", product.Price);
+                    cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Get all products
         public List<Product> GetAllProducts()
         {
             var products = new List<Product>();
 
-            using (var conn = new MySqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT id, name, image_url, price FROM products", conn);
+                connection.Open();
+
+                var query = "SELECT * FROM products";
+                using (var cmd = new MySqlCommand(query, connection))
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        products.Add(new Product
+                        var product = new Product
                         {
                             Id = reader.GetInt32("id"),
                             Name = reader.GetString("name"),
-                            ImageUrl = reader.GetString("image_url"),
-                            Price = reader.GetDecimal("price")
-                        });
+                            Description = reader.GetString("description"),
+                            Price = reader.GetDecimal("price"),
+                            ImageUrl = reader.GetString("image_url")
+                        };
+
+                        products.Add(product);
                     }
                 }
             }
@@ -40,32 +67,83 @@ namespace online.shop.api.Services
             return products;
         }
 
+        // Get product by ID
         public Product GetProductById(int id)
         {
             Product product = null;
 
-            using (var conn = new MySqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT id, name, image_url, price FROM products WHERE id = @id", conn);
-                cmd.Parameters.AddWithValue("@id", id);
+                connection.Open();
 
-                using (var reader = cmd.ExecuteReader())
+                var query = "SELECT * FROM products WHERE Id = @Id";
+                using (var cmd = new MySqlCommand(query, connection))
                 {
-                    if (reader.Read())
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        product = new Product
+                        if (reader.Read())
                         {
-                            Id = reader.GetInt32("id"),
-                            Name = reader.GetString("name"),
-                            ImageUrl = reader.GetString("image_url"),
-                            Price = reader.GetDecimal("price")
-                        };
+                            product = new Product
+                            {
+                                Id = reader.GetInt32("Id"),
+                                Name = reader.GetString("Name"),
+                                Description = reader.GetString("Description"),
+                                Price = reader.GetDecimal("Price"),
+                                ImageUrl = reader.GetString("ImageUrl")
+                            };
+                        }
                     }
                 }
             }
 
             return product;
+        }
+
+        // Update a product
+        public void UpdateProduct(Product product)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query =
+                    @"UPDATE products SET 
+                              Name = @Name, 
+                              Description = @Description, 
+                              Price = @Price, 
+                              ImageUrl = @ImageUrl 
+                              WHERE Id = @Id";
+
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", product.Name);
+                    cmd.Parameters.AddWithValue("@Description", product.Description);
+                    cmd.Parameters.AddWithValue("@Price", product.Price);
+                    cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl);
+                    cmd.Parameters.AddWithValue("@Id", product.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Delete a product
+        public void DeleteProduct(int id)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = "DELETE FROM products WHERE Id = @Id";
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

@@ -1,0 +1,47 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Users Table -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.User.UserName</td>
+                <td>@user.User.Email</td>
+                <td>@foreach (var role in user.Roles)
+                    {
+                        <span class="badge bg-primary">@role</span>
+                    }</td>
+                <td>
+                    <!-- Edit User -->
+                    <a href="@Url.Action("EditUser", "Admin", new { id = user.User.Id })" class="btn btn-warning btn-sm">Edit</a> |
+
+                    <!-- Delete User -->
+                    <form action="@Url.Action("DeleteUser", "Admin", new { id = user.User.Id })" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add New User Button -->
+<a href="@Url.Action("CreateUser", "Admin")" class="btn btn-primary">Add New User</a>
+

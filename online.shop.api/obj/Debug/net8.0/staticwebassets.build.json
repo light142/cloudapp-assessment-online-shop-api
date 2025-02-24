@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dprOveMpjzJkCZdus9vc8K4fOpZ5zINq3+orV0vFnFI=",
+  "Hash": "jz3Z0rAWczYAYqQisj73luBEqk5Yvocs65v/Zq32QBE=",
   "Source": "online.shop.api",
   "BasePath": "_content/online.shop.api",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\online.shop.api.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\css\\admin-panel.css",
+      "SourceId": "online.shop.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\",
+      "BasePath": "_content/online.shop.api",
+      "RelativePath": "css/admin-panel.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin-panel.css"
     },
     {
       "Identity": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\css\\auth.css",

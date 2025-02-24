@@ -7,9 +7,9 @@ using online.shop.api.Models;
 [Authorize]
 public class AccountController : Controller
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public AccountController(UserManager<IdentityUser> userManager)
+    public AccountController(UserManager<ApplicationUser> userManager)
     {
         _userManager = userManager;
     }

@@ -1,0 +1,38 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<h2>Manage Products</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image Url</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.ImageUrl</td>
+                <td>
+                    <a href="@Url.Action("EditProduct", "Admin", new { id = product.Id })" class="btn btn-warning btn-sm">Edit</a> |
+                    <a href="@Url.Action("DeleteProduct", "Admin", new { id = product.Id })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("CreateProduct", "Admin")" class="btn btn-primary">Create New Product</a>

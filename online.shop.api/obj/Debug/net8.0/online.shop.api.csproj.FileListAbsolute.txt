@@ -258,3 +258,4 @@ C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAu
 C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
