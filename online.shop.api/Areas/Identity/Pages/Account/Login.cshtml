@@ -1,0 +1,15 @@
+﻿@page
+@model LoginModel
+
+<div class="auth-container">
+    <h2 class="auth-title">🔑 Login</h2>
+
+    <form method="post">
+        <input asp-for="Input.Email" class="auth-input" placeholder="📧 Email" required>
+        <input asp-for="Input.Password" type="password" class="auth-input" placeholder="🔒 Password" required>
+
+        <button type="submit" class="auth-btn">Login</button>
+        
+        <a asp-page="./Register" class="auth-link">Don't have an account? Sign Up</a>
+    </form>
+</div>

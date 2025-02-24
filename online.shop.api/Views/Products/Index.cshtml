@@ -1,25 +1,25 @@
-@model List<online.shop.api.Models.Product>
+@model IEnumerable<Product>
 
-@{
-    ViewData["Title"] = "Products";
-}
+<div class="container">
+    <h2 class="text-center my-4 fw-bold">Explore Our Premium Products</h2>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">@product.Name</h5>
+                        <p class="text-muted">$@product.Price</p>
 
-<h2>Products</h2>
+                        <button class="add-to-cart-btn btn btn-primary" onclick="addToCart(this)"
+                            data-product-id="@product.Id">
+                            🛒 Add to Cart
+                        </button>
 
-<div class="row">
-    @foreach (var product in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name"
-                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
-                <div class="card-body">
-                    <h5 class="card-title">@product.Name</h5>
-                    <p class="card-text">@product.Description</p>
-                    <p class="card-text"><strong>Price: $@product.Price</strong></p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
