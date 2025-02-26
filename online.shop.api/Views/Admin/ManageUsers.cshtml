@@ -22,13 +22,13 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.User.UserName</td>
+                <td class="text-nowrap">@user.User.UserName</td>
                 <td>@user.User.Email</td>
                 <td>@foreach (var role in user.Roles)
                     {
                         <span class="badge bg-primary">@role</span>
                     }</td>
-                <td>
+                <td class="text-nowrap">
                     <!-- Edit User -->
                     <a href="@Url.Action("EditUser", "Admin", new { id = user.User.Id })" class="btn btn-warning btn-sm">Edit</a> |
 

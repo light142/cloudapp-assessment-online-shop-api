@@ -71,27 +71,37 @@ namespace online.shop.api.Controllers
         }
 
         // Create Product
+        [HttpGet]
         public IActionResult CreateProduct()
         {
-            return View();
+            return PartialView("Shared/_CreateProduct", new Product());
         }
 
         [HttpPost]
-        public IActionResult CreateProduct(Product model)
+        public IActionResult CreateProduct(Product product)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _productService.CreateProduct(model);
-                return RedirectToAction("ManageProducts");
+                return PartialView("Shared/_CreateProduct", product);
             }
-            return View(model);
+
+            bool isCreated = _productService.CreateProduct(product);
+            if (isCreated)
+            {
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false, message = "Failed to create product." });
         }
 
         // Edit Product
+        [HttpGet]
         public IActionResult EditProduct(int id)
         {
             var product = _productService.GetProductById(id);
-            return View(product);
+            if (product == null)
+                return NotFound();
+            return PartialView("Shared/_EditProduct", product);
         }
 
         [HttpPost]
@@ -99,17 +109,30 @@ namespace online.shop.api.Controllers
         {
             if (ModelState.IsValid)
             {
-                _productService.UpdateProduct(model);
-                return RedirectToAction("ManageProducts");
+                var updated = _productService.UpdateProduct(model);
+                if (updated)
+                    return Json(new { success = true });
             }
-            return View(model);
+            return PartialView("Shared/_EditProduct", model);
         }
 
-        // Delete Product
+        [HttpGet]
         public IActionResult DeleteProduct(int id)
         {
-            _productService.DeleteProduct(id);
-            return RedirectToAction("ManageProducts");
+            var product = _productService.GetProductById(id);
+            if (product == null)
+                return NotFound();
+            return PartialView("Shared/_DeleteProduct", product);
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmDelete(int id)
+        {
+            var deleted = _productService.DeleteProduct(id);
+            if (deleted)
+                return Json(new { success = true });
+
+            return NotFound();
         }
     }
 }

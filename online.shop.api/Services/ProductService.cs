@@ -13,15 +13,16 @@ namespace online.shop.api.Services
         }
 
         // Create a new product
-        public void CreateProduct(Product product)
+        public bool CreateProduct(Product product)
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
 
                 var query =
-                    @"INSERT INTO products (Name, Description, Price, ImageUrl) 
-                              VALUES (@Name, @Description, @Price, @ImageUrl)";
+                    @"
+            INSERT INTO products (Name, Description, Price, Image_Url) 
+            VALUES (@Name, @Description, @Price, @ImageUrl)";
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {
@@ -30,7 +31,8 @@ namespace online.shop.api.Services
                     cmd.Parameters.AddWithValue("@Price", product.Price);
                     cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl);
 
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
         }
@@ -102,7 +104,7 @@ namespace online.shop.api.Services
         }
 
         // Update a product
-        public void UpdateProduct(Product product)
+        public bool UpdateProduct(Product product)
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -113,7 +115,7 @@ namespace online.shop.api.Services
                               Name = @Name, 
                               Description = @Description, 
                               Price = @Price, 
-                              ImageUrl = @ImageUrl 
+                              Image_Url = @ImageUrl 
                               WHERE Id = @Id";
 
                 using (var cmd = new MySqlCommand(query, connection))
@@ -125,12 +127,15 @@ namespace online.shop.api.Services
                     cmd.Parameters.AddWithValue("@Id", product.Id);
 
                     cmd.ExecuteNonQuery();
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
         }
 
         // Delete a product
-        public void DeleteProduct(int id)
+        public bool DeleteProduct(int id)
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -141,7 +146,8 @@ namespace online.shop.api.Services
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
 
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
         }

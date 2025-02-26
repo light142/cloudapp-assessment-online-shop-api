@@ -1,0 +1,13 @@
+<form id="deleteProductForm">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<script>
+    $("#deleteProductForm").submit(function (e) {
+        e.preventDefault();
+        $.post("/Admin/ConfirmDelete", $(this).serialize(), function (response) {
+            if (response.success) location.reload();
+        });
+    });
+</script>
