@@ -148,9 +148,10 @@ namespace online.shop.api.Areas.Identity.Pages.Account
                         return Page();
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     // If there's an error connecting to the DB, return the error view
+                    ModelState.AddModelError(string.Empty, e.Message);
                     return Page();
                 }
             }
