@@ -180,10 +180,10 @@ namespace online.shop.api.Areas.Identity.Pages.Account
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     // If there's an error connecting to the DB, return the error view
-                    ModelState.AddModelError(string.Empty, e.Message);
+                    ModelState.AddModelError(string.Empty, "We couldn't connect to the server at the moment. Please try again later.");
                     return Page();
                 }
             }
