@@ -33,7 +33,7 @@ namespace online.shop.api.Controllers
                     return View("Error");
                 }
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM products", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Products", conn);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -45,9 +45,9 @@ namespace online.shop.api.Controllers
                                 Name = reader.GetString("name"),
                                 Description = reader.GetString("description"),
                                 Price = reader.GetDecimal("price"),
-                                ImageUrl = reader.IsDBNull(reader.GetOrdinal("image_url"))
+                                ImageUrl = reader.IsDBNull(reader.GetOrdinal("ImageUrl"))
                                     ? ""
-                                    : reader.GetString("image_url")
+                                    : reader.GetString("ImageUrl")
                             }
                         );
                     }

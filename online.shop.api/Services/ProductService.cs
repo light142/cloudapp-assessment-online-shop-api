@@ -21,7 +21,7 @@ namespace online.shop.api.Services
 
                 var query =
                     @"
-            INSERT INTO products (Name, Description, Price, Image_Url) 
+            INSERT INTO Products (Name, Description, Price, ImageUrl) 
             VALUES (@Name, @Description, @Price, @ImageUrl)";
 
                 using (var cmd = new MySqlCommand(query, connection))
@@ -46,7 +46,7 @@ namespace online.shop.api.Services
             {
                 connection.Open();
 
-                var query = "SELECT * FROM products";
+                var query = "SELECT * FROM Products";
                 using (var cmd = new MySqlCommand(query, connection))
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -58,7 +58,7 @@ namespace online.shop.api.Services
                             Name = reader.GetString("name"),
                             Description = reader.GetString("description"),
                             Price = reader.GetDecimal("price"),
-                            ImageUrl = reader.GetString("image_url")
+                            ImageUrl = reader.GetString("ImageUrl")
                         };
 
                         products.Add(product);
@@ -78,7 +78,7 @@ namespace online.shop.api.Services
             {
                 connection.Open();
 
-                var query = "SELECT * FROM products WHERE Id = @Id";
+                var query = "SELECT * FROM Products WHERE Id = @Id";
                 using (var cmd = new MySqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
@@ -93,7 +93,7 @@ namespace online.shop.api.Services
                                 Name = reader.GetString("Name"),
                                 Description = reader.GetString("Description"),
                                 Price = reader.GetDecimal("Price"),
-                                ImageUrl = reader.GetString("Image_Url")
+                                ImageUrl = reader.GetString("ImageUrl")
                             };
                         }
                     }
@@ -111,11 +111,11 @@ namespace online.shop.api.Services
                 connection.Open();
 
                 var query =
-                    @"UPDATE products SET 
+                    @"UPDATE Products SET 
                               Name = @Name, 
                               Description = @Description, 
                               Price = @Price, 
-                              Image_Url = @ImageUrl 
+                              ImageUrl = @ImageUrl 
                               WHERE Id = @Id";
 
                 using (var cmd = new MySqlCommand(query, connection))
@@ -141,7 +141,7 @@ namespace online.shop.api.Services
             {
                 connection.Open();
 
-                var query = "DELETE FROM products WHERE Id = @Id";
+                var query = "DELETE FROM Products WHERE Id = @Id";
                 using (var cmd = new MySqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
