@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using online.shop.api.Data;
 using online.shop.api.Models;
 using online.shop.api.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,17 +42,31 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<UserService>();
 
+// Configure Serilog
+Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+
+builder.Host.UseSerilog();
+
 var app = builder.Build();
+
+Log.Information("Application is starting...");
 
 // Seed users and roles
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
-    context.Database.Migrate(); // Ensures DB is created
+    try
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate(); // Ensures DB is created
 
-    await DataSeeder.SeedUsersAndRolesAsync(services);
-    await DataSeeder.SeedProductsAsync(context);
+        await DataSeeder.SeedUsersAndRolesAsync(services);
+        await DataSeeder.SeedProductsAsync(context);
+    }
+    catch (Exception e)
+    {
+        Log.Error(e, "Database Error...");
+    }
 }
 
 // Configure the HTTP request pipeline.

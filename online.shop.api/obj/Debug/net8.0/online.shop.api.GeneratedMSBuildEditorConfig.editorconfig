@@ -17,113 +17,111 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = online.shop.api
 build_property.RootNamespace = online.shop.api
-build_property.ProjectDir = c:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\
+build_property.ProjectDir = C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api
+build_property.MSBuildProjectDirectory = C:\Light\AIS\SOFT807_CloudApplication\Assignments\Assessment_1\Assignment1AungAung\cloudapp-assessment-online-shop-api\online.shop.api
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Account/Profile.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Index.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/ManageProducts.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/ManageProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlUHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/ManageUsers.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/ManageUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_CreateProduct.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_CreateProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9DcmVhdGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_CreateUser.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_CreateUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9DcmVhdGVVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteProduct.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9EZWxldGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteUser.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9EZWxldGVVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditProduct.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9FZGl0UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditUser.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9FZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Cart/Index.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Products/Index.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/Error.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_AdminLayout.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_LoginPartial.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/_ViewImports.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/_ViewStart.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_Layout.cshtml]
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2dirfd731e
