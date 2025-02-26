@@ -91,7 +91,7 @@ namespace online.shop.api.Services
                                 Name = reader.GetString("Name"),
                                 Description = reader.GetString("Description"),
                                 Price = reader.GetDecimal("Price"),
-                                ImageUrl = reader.GetString("ImageUrl")
+                                ImageUrl = reader.GetString("Image_Url")
                             };
                         }
                     }
