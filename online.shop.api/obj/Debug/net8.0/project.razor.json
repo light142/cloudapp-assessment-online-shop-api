@@ -19349,6 +19349,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\Shared\\_EditUser.cshtml",
+      "TargetPath": "Views\\Admin\\Shared\\_EditUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -19389,6 +19394,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\Shared\\_DeleteUser.cshtml",
+      "TargetPath": "Views\\Admin\\Shared\\_DeleteUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\Shared\\_CreateProduct.cshtml",
       "TargetPath": "Views\\Admin\\Shared\\_CreateProduct.cshtml",
       "FileKind": "mvc"
@@ -19421,6 +19431,11 @@
     {
       "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\ManageProducts.cshtml",
       "TargetPath": "Views\\Admin\\ManageProducts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\Views\\Admin\\Shared\\_CreateUser.cshtml",
+      "TargetPath": "Views\\Admin\\Shared\\_CreateUser.cshtml",
       "FileKind": "mvc"
     },
     {

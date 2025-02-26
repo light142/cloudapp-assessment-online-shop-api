@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JmCoHRJ315zfVcpjuMyXGZ6FPq1h7sV5LIl7VKH8mvE=",
+  "Hash": "wu5zfHrQRQx/fO+job9qAGx/avMkzcPYGnebBhYXvA0=",
   "Source": "online.shop.api",
   "BasePath": "_content/online.shop.api",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\admin-products.js"
+    },
+    {
+      "Identity": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\js\\admin-users.js",
+      "SourceId": "online.shop.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\",
+      "BasePath": "_content/online.shop.api",
+      "RelativePath": "js/admin-users.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\admin-users.js"
     },
     {
       "Identity": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\js\\cart.js",

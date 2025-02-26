@@ -1,10 +1,26 @@
 ﻿@page
 @model RegisterModel
 
+@{
+    ViewData["Title"] = "Register";
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+
 <div class="auth-container">
     <h2 class="auth-title">📝 Register</h2>
 
     <form method="post">
+        <input asp-for="Input.Username" class="auth-input" placeholder="👤 Username" required>
         <input asp-for="Input.Email" class="auth-input" placeholder="📧 Email" required>
         <input asp-for="Input.Password" type="password" class="auth-input" placeholder="🔒 Password" required>
         <input asp-for="Input.ConfirmPassword" type="password" class="auth-input" placeholder="🔑 Confirm Password" required>

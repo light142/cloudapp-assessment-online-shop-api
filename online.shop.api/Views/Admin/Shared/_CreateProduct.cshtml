@@ -22,13 +22,3 @@
         <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
-
-
-<script>
-    $("#createProductForm").submit(function (e) {
-        e.preventDefault();
-        $.post("/Admin/CreateProduct", $(this).serialize(), function (response) {
-            if (response.success) location.reload();
-        });
-    });
-</script>

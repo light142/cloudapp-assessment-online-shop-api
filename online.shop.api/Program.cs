@@ -36,7 +36,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddSingleton<ProductService>();
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 

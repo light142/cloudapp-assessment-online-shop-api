@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\admin-products.js"
     },
     {
+      "Id": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\js\\admin-users.js",
+      "PackagePath": "staticwebassets\\js\\admin-users.js"
+    },
+    {
       "Id": "C:\\Light\\AIS\\SOFT807_CloudApplication\\Assignments\\Assessment_1\\Assignment1AungAung\\cloudapp-assessment-online-shop-api\\online.shop.api\\wwwroot\\js\\cart.js",
       "PackagePath": "staticwebassets\\js\\cart.js"
     },

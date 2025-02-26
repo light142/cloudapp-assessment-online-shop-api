@@ -24,4 +24,46 @@ $(document).ready(function () {
             $("#createProductModal").modal("show");
         });
     });
+
+    $(document).on("submit", "#createProductForm", function (e) {
+        e.preventDefault();
+        $.post("/Admin/CreateProduct", $(this).serialize(), function (response) {
+            if (response.success) {
+                alert(response.message);
+                $("#createProductModal").modal("hide");
+                location.reload(); // Refresh user list
+            } else {
+                let errors = response.errors.join("\n");
+                alert("Error:\n" + errors);
+            }
+        });
+    });
+
+    $(document).on("submit", "#deleteProductForm", function (e) {
+        e.preventDefault();
+        $.post("/Admin/ConfirmDelete", $(this).serialize(), function (response) {
+            if (response.success) {
+                alert(response.message);
+                $("#deleteProductModal").modal("hide");
+                location.reload(); // Refresh user list
+            } else {
+                let errors = response.errors.join("\n");
+                alert("Error:\n" + errors);
+            }
+        });
+    });
+
+    $(document).on("submit", "#editProductForm", function (e) {
+        e.preventDefault();
+        $.post("/Admin/EditProduct", $(this).serialize(), function (response) {
+            if (response.success) {
+                alert(response.message);
+                $("#editProductModal").modal("hide");
+                location.reload(); // Refresh user list
+            } else {
+                let errors = response.errors.join("\n");
+                alert("Error:\n" + errors);
+            }
+        });
+    });
 });

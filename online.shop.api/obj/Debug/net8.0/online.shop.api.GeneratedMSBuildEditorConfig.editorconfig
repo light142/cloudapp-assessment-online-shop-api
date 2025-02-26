@@ -70,12 +70,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9DcmVhdGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9DcmVhdGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9EZWxldGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_DeleteUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9EZWxldGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9FZGl0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Admin/Shared/_EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hhcmVkXF9FZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Light/AIS/SOFT807_CloudApplication/Assignments/Assessment_1/Assignment1AungAung/cloudapp-assessment-online-shop-api/online.shop.api/Views/Cart/Index.cshtml]
