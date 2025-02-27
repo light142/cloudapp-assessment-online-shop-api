@@ -1,0 +1,14 @@
+runtime: custom
+env: flex
+
+handlers:
+- url: /.*
+  script: auto
+
+env_variables:
+  ConnectionStrings__DefaultConnection: "server=shop-app.mysql.database.azure.com;port=3306;database=online-shop-app-db;user=dbuser;password=P@ssw0rd$;"
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
