@@ -4,38 +4,37 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using online.shop.api.Models;
 
-[Authorize]
-public class AccountController : Controller
+namespace online.shop.api.Controllers
 {
-    private readonly UserManager<ApplicationUser> _userManager;
-
-    public AccountController(UserManager<ApplicationUser> userManager)
+    [Authorize]
+    public class AccountController(UserManager<ApplicationUser> userManager) : Controller
     {
-        _userManager = userManager;
-    }
+        private readonly UserManager<ApplicationUser> _userManager = userManager;
 
-    public async Task<IActionResult> Profile()
-    {
-        var user = await _userManager.GetUserAsync(User);
-        if (user == null)
+        [HttpGet]
+        public async Task<IActionResult> Profile()
         {
-            return RedirectToAction("Login");
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View(
+                new UserProfileModel
+                {
+                    Username = user.UserName ?? string.Empty,
+                    Email = user.Email ?? string.Empty,
+                    Role = User.IsInRole("Admin") ? "Admin" : "User"
+                }
+            );
         }
 
-        var model = new UserProfileModel
+        [HttpPost]
+        public async Task<IActionResult> Logout()
         {
-            Username = user.UserName,
-            Email = user.Email,
-            Role = User.IsInRole("Admin") ? "Admin" : "User"
-        };
-
-        return View(model);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Logout()
-    {
-        await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
-        return RedirectToAction("Index", "Products");
+            await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
+            return RedirectToAction("Index", "Products");
+        }
     }
 }

@@ -8,13 +8,13 @@ using online.shop.api.ViewModels;
 
 namespace online.shop.api.Controllers
 {
-    [Authorize(Roles = "Admin")] // Only allow access to admin users
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ProductService _productService; // Service for handling products
-        private readonly UserService _userService; // Service for handling products
+        private readonly ProductService _productService;
+        private readonly UserService _userService;
 
         public AdminController(
             UserManager<ApplicationUser> userManager,
@@ -29,13 +29,13 @@ namespace online.shop.api.Controllers
             _userService = userService;
         }
 
-        // Admin Dashboard
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        // Manage Users
+        [HttpGet]
         public async Task<IActionResult> ManageUsers()
         {
             var users = await _userManager.Users.ToListAsync();
