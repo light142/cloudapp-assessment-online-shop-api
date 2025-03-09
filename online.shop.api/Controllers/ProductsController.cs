@@ -1,60 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
-using online.shop.api.Models;
+using online.shop.api.Services;
 
 namespace online.shop.api.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IConfiguration _configuration;
+        private readonly ProductService _productService;
 
-        public ProductsController(IConfiguration configuration)
+        public ProductsController(ProductService productService)
         {
-            _configuration = configuration;
+            _productService = productService;
         }
 
         public IActionResult Index()
         {
-            List<Product> products = new List<Product>();
-
-            using (
-                MySqlConnection conn = new MySqlConnection(
-                    _configuration.GetConnectionString("DefaultConnection")
-                )
-            )
+            try
             {
-                try
-                {
-                    conn.Open();
-                }
-                catch (Exception)
-                {
-                    // If there's an error connecting to the DB, return the error view
-                    return View("Error");
-                }
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Products", conn);
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        products.Add(
-                            new Product
-                            {
-                                Id = reader.GetInt32("id"),
-                                Name = reader.GetString("name"),
-                                Description = reader.GetString("description"),
-                                Price = reader.GetDecimal("price"),
-                                ImageUrl = reader.IsDBNull(reader.GetOrdinal("ImageUrl"))
-                                    ? ""
-                                    : reader.GetString("ImageUrl")
-                            }
-                        );
-                    }
-                }
+                var products = _productService.GetAllProducts();
+                return View(products);
             }
+            catch (Exception)
+            {
+                // If there's an error connecting to the DB, return the error view
+                return View("Error");
+            }
+        }
 
-            return View(products);
+        public IActionResult Details(int id)
+        {
+            try
+            {
+                var product = _productService.GetProductById(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                return View(product);
+            }
+            catch (Exception)
+            {
+                // If there's an error connecting to the DB, return the error view
+                return View("Error");
+            }
         }
     }
 }

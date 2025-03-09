@@ -30,20 +30,22 @@ namespace online.shop.api.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToCart(int id)
+        public IActionResult AddToCart([FromBody] CartItemRequest request)
         {
             var cart = GetCart();
-            var product = _productService.GetProductById(id);
+            var product = _productService.GetProductById(request.ProductId);
+
+            var quantity = request.Quantity ?? 1;
 
             if (product == null)
             {
                 return Json(new { success = false, message = "Product not found" });
             }
-            var existingItem = cart.FirstOrDefault(c => c.ProductId == id);
+            var existingItem = cart.FirstOrDefault(c => c.ProductId == request.ProductId);
 
             if (existingItem != null)
             {
-                existingItem.Quantity++; // Increment quantity if product already exists
+                existingItem.Quantity += quantity; // Increment quantity if product already exists
             }
             else
             {
@@ -54,7 +56,7 @@ namespace online.shop.api.Controllers
                         Name = product.Name,
                         ImageUrl = product.ImageUrl,
                         Price = product.Price,
-                        Quantity = 1
+                        Quantity = quantity
                     }
                 );
             }

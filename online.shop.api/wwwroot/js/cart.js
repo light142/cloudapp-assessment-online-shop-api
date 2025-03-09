@@ -21,17 +21,44 @@ $(document).ready(function () {
 
         updateCart(productId, newQuantity);
     });
+
+    $(".product-card").on("click", function (e) {
+        // If the click was on the "Add to Cart" button, do nothing
+        if ($(e.target).closest('.add-to-cart-btn').length > 0) {
+            return;
+        }
+        // Otherwise, navigate to the product details page
+        let productId = $(this).data("product-id");
+        window.location.href = `/Products/Details/${productId}`;
+    });
+
+    $(".inner-quantity-btn").on("click", function () {
+        let productId = $(this).data("id");
+        let quantityElement = $("#inner-quantity-" + productId);
+        let currentQuantity = parseInt(quantityElement.text());
+        let newQuantity = currentQuantity;
+
+        if ($(this).hasClass("increase")) {
+            newQuantity++;
+        } else if ($(this).hasClass("decrease") && currentQuantity > 1) {
+            newQuantity--;
+        }
+
+        quantityElement.text(newQuantity);
+    });
 });
 
 // Function to add product to cart
 function addToCart(button) {
     let productId = button.data("product-id");
+    let quantity = $("#inner-quantity-" + productId).text(); // Get selected quantity
 
     $.ajax({
-        url: `/Cart/AddToCart/${productId}`,
+        url: "/Cart/AddToCart",
         type: "POST",
         contentType: "application/json",
         headers: { "X-Requested-With": "XMLHttpRequest" },
+        data: JSON.stringify({ productId: productId, quantity: parseInt(quantity) }), // Include quantity
         success: function (data) {
             if (data.success) {
                 showPopup("✅ Product added to cart!");
