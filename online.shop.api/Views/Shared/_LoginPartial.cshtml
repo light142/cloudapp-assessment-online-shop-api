@@ -11,6 +11,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                 <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">👤 Profile</a></li>
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Wishlist">❤️ Wishlist</a></li>
                 @if (User.IsInRole("Admin"))
                 {
                     <li><a class="dropdown-item" asp-controller="Admin" asp-action="Index">⚙️ Admin Panel</a></li>

@@ -27,6 +27,17 @@ $(document).ready(function () {
         if ($(e.target).closest('.add-to-cart-btn').length > 0) {
             return;
         }
+
+        // If the click was on the "Add to Wishlist" button, do nothing
+        if ($(e.target).closest('.add-to-wishlist-btn').length > 0) {
+            return;
+        }
+
+        // If the click was on the "Remove from Wishlist" button, do nothing
+        if ($(e.target).closest('.remove-from-wishlist-btn').length > 0) {
+            return;
+        }
+
         // Otherwise, navigate to the product details page
         let productId = $(this).data("product-id");
         window.location.href = `/Products/Details/${productId}`;
@@ -45,6 +56,63 @@ $(document).ready(function () {
         }
 
         quantityElement.text(newQuantity);
+    });
+
+    $(".add-to-wishlist-btn").on("click", function () {
+        var productId = $(this).data("product-id");
+        var button = $(this);
+
+        // Check if the product is in the wishlist
+        var isInWishlist = button.text().includes("Remove");
+        var url = isInWishlist ? `/Wishlist/RemoveFromWishlist/` : `/Wishlist/AddToWishlist/`;
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    // Toggle button text and style
+                    if (isInWishlist) {
+                        button.html('❤️ Add to Wishlist');
+                        showPopup("✅ Product removed from wishlist!");
+                    } else {
+                        button.html('❌ Remove from Wishlist');
+                        showPopup("✅ Product added to wishlist!");
+                    }
+                } else {
+                    alert('Error updating wishlist.');
+                }
+            },
+            error: function () {
+                alert('Something went wrong!');
+            }
+        });
+    });
+
+    $(".remove-from-wishlist-btn").on("click", function () {
+        var productId = $(this).data("product-id");
+        var button = $(this);
+
+        // Check if the product is in the wishlist
+        var url = `/Wishlist/RemoveFromWishlist/`;
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    // Toggle button text and style
+                    location.reload(); // Refresh the page to reflect the changes
+                } else {
+                    alert('Error updating wishlist.');
+                }
+            },
+            error: function () {
+                alert('Something went wrong!');
+            }
+        });
     });
 });
 

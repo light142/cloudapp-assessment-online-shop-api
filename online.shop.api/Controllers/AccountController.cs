@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -7,9 +8,13 @@ using online.shop.api.Models;
 namespace online.shop.api.Controllers
 {
     [Authorize]
-    public class AccountController(UserManager<ApplicationUser> userManager) : Controller
+    public class AccountController(
+        UserManager<ApplicationUser> userManager,
+        WishlistService wishlistService
+    ) : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager = userManager;
+        private readonly WishlistService _wishlistService = wishlistService;
 
         [HttpGet]
         public async Task<IActionResult> Profile()
@@ -35,6 +40,15 @@ namespace online.shop.api.Controllers
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
             return RedirectToAction("Index", "Products");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Wishlist()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var products = await _wishlistService.GetWishlistAsync(userId);
+
+            return View(products);
         }
     }
 }

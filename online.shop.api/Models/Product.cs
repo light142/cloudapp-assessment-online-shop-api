@@ -11,5 +11,7 @@ namespace online.shop.api.Models
         [Column(TypeName = "DECIMAL(10,2)")]
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
+
+        public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
     }
 }

@@ -33,8 +33,7 @@ $(document).ready(function () {
                 $("#createProductModal").modal("hide");
                 location.reload(); // Refresh user list
             } else {
-                let errors = response.errors.join("\n");
-                alert("Error:\n" + errors);
+                alert("Error:\n" + response.message);
             }
         });
     });
@@ -47,8 +46,7 @@ $(document).ready(function () {
                 $("#deleteProductModal").modal("hide");
                 location.reload(); // Refresh user list
             } else {
-                let errors = response.errors.join("\n");
-                alert("Error:\n" + errors);
+                alert("Error:\n" + response.message);
             }
         });
     });
@@ -61,8 +59,7 @@ $(document).ready(function () {
                 $("#editProductModal").modal("hide");
                 location.reload(); // Refresh user list
             } else {
-                let errors = response.errors.join("\n");
-                alert("Error:\n" + errors);
+                alert("Error:\n" + response.message);
             }
         });
     });

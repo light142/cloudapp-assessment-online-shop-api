@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using online.shop.api.Services;
 
@@ -6,18 +7,32 @@ namespace online.shop.api.Controllers
     public class ProductsController : Controller
     {
         private readonly ProductService _productService;
+        private readonly WishlistService _wishlistService;
 
-        public ProductsController(ProductService productService)
+        public ProductsController(ProductService productService, WishlistService wishlistService)
         {
             _productService = productService;
+            _wishlistService = wishlistService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             try
             {
-                var products = _productService.GetAllProducts();
-                return View(products);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var wishlist = await _wishlistService.GetWishlistAsync(userId);
+                var wishlistProductIds = wishlist.Select(p => p.Id).ToList(); // List of product IDs in the wishlist
+
+                var products = await _productService.GetAllProductsAsync();
+
+                // Pass the wishlist product IDs to the view
+                var viewModel = new ProductViewModel
+                {
+                    Products = products,
+                    WishlistProductIds = wishlistProductIds
+                };
+
+                return View(viewModel);
             }
             catch (Exception)
             {
@@ -26,14 +41,14 @@ namespace online.shop.api.Controllers
             }
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             try
             {
-                var product = _productService.GetProductById(id);
+                var product = await _productService.GetProductByIdAsync(id);
                 if (product == null)
                 {
-                    return NotFound();
+                    return View("Error");
                 }
                 return View(product);
             }

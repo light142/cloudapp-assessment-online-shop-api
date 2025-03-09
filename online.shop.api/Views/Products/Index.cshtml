@@ -1,4 +1,4 @@
-@model IEnumerable<Product>
+@model ProductViewModel
 
 @{
     ViewData["Title"] = "Products";
@@ -7,7 +7,7 @@
 <div class="container">
     <h2 class="text-center my-4 fw-bold">Explore Our Premium Products</h2>
     <div class="row">
-        @foreach (var product in Model)
+        @foreach (var product in Model.Products)
         {
             <div class="col-md-4 mb-4">
                 <div class="card product-card" data-product-id="@product.Id">
@@ -20,6 +20,20 @@
                             data-product-id="@product.Id">
                             🛒 Add to Cart
                         </button>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button class="add-to-wishlist-btn btn btn-secondary" data-product-id="@product.Id">
+                                @if (Model.WishlistProductIds.Contains(product.Id))
+                                {
+                                    <span>❌ Remove from Wishlist</span>
+                                }
+                                else
+                                {
+                                    <span>❤️ Add to Wishlist</span>
+                                }
+                            </button>
+                        }
                     </div>
                 </div>
             </div>

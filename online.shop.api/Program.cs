@@ -41,6 +41,7 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<WishlistService>();
 
 // Configure Serilog
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();

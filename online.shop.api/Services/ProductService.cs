@@ -1,155 +1,56 @@
-using MySql.Data.MySqlClient;
 using online.shop.api.Models;
+using Microsoft.EntityFrameworkCore;
+using online.shop.api.Data;
 
 namespace online.shop.api.Services
 {
     public class ProductService
     {
-        private readonly string _connectionString;
+        private readonly ApplicationDbContext _context;
 
-        public ProductService(IConfiguration configuration)
+        public ProductService(ApplicationDbContext context)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _context = context;
         }
 
         // Create a new product
-        public bool CreateProduct(Product product)
+        public async Task<bool> CreateProductAsync(Product product)
         {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                var query =
-                    @"
-            INSERT INTO Products (Name, Description, Price, ImageUrl) 
-            VALUES (@Name, @Description, @Price, @ImageUrl)";
-
-                using (var cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Name", product.Name);
-                    cmd.Parameters.AddWithValue("@Description", product.Description);
-                    cmd.Parameters.AddWithValue("@Price", product.Price);
-                    cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
+            _context.Products.Add(product);
+            int rowsAffected = await _context.SaveChangesAsync();
+            return rowsAffected > 0;
         }
 
         // Get all products
-        public List<Product> GetAllProducts()
+        public async Task<List<Product>> GetAllProductsAsync()
         {
-            var products = new List<Product>();
-
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                var query = "SELECT * FROM Products";
-                using (var cmd = new MySqlCommand(query, connection))
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var product = new Product
-                        {
-                            Id = reader.GetInt32("id"),
-                            Name = reader.GetString("name"),
-                            Description = reader.GetString("description"),
-                            Price = reader.GetDecimal("price"),
-                            ImageUrl = reader.GetString("ImageUrl")
-                        };
-
-                        products.Add(product);
-                    }
-                }
-            }
-
-            return products;
+            return await _context.Products.ToListAsync();
         }
 
         // Get product by ID
-        public Product GetProductById(int id)
+        public async Task<Product> GetProductByIdAsync(int id)
         {
-            Product product = null;
-
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                var query = "SELECT * FROM Products WHERE Id = @Id";
-                using (var cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            product = new Product
-                            {
-                                Id = reader.GetInt32("Id"),
-                                Name = reader.GetString("Name"),
-                                Description = reader.GetString("Description"),
-                                Price = reader.GetDecimal("Price"),
-                                ImageUrl = reader.GetString("ImageUrl")
-                            };
-                        }
-                    }
-                }
-            }
-
-            return product;
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
 
         // Update a product
-        public bool UpdateProduct(Product product)
+        public async Task<bool> UpdateProductAsync(Product product)
         {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                var query =
-                    @"UPDATE Products SET 
-                              Name = @Name, 
-                              Description = @Description, 
-                              Price = @Price, 
-                              ImageUrl = @ImageUrl 
-                              WHERE Id = @Id";
-
-                using (var cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Name", product.Name);
-                    cmd.Parameters.AddWithValue("@Description", product.Description);
-                    cmd.Parameters.AddWithValue("@Price", product.Price);
-                    cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl);
-                    cmd.Parameters.AddWithValue("@Id", product.Id);
-
-                    cmd.ExecuteNonQuery();
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
+            _context.Products.Update(product);
+            int rowsAffected = await _context.SaveChangesAsync();
+            return rowsAffected > 0;
         }
 
         // Delete a product
-        public bool DeleteProduct(int id)
+        public async Task<bool> DeleteProductAsync(int id)
         {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                connection.Open();
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+                return false;
 
-                var query = "DELETE FROM Products WHERE Id = @Id";
-                using (var cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
+            _context.Products.Remove(product);
+            int rowsAffected = await _context.SaveChangesAsync();
+            return rowsAffected > 0;
         }
     }
 }

@@ -56,7 +56,8 @@ namespace online.shop.api.Controllers
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
-                return NotFound();
+                return Json(new { success = false, message = "Failed action" });
+            ;
 
             var roles = await _userManager.GetRolesAsync(user);
             var role = roles.FirstOrDefault() ?? "User"; // Default to "User"
@@ -148,7 +149,8 @@ namespace online.shop.api.Controllers
         {
             var user = await _userService.GetUserByIdAsync(id);
             if (user == null)
-                return NotFound();
+                return Json(new { success = false, message = "Failed action" });
+            ;
 
             return PartialView("Shared/_DeleteUser", user);
         }
@@ -208,9 +210,9 @@ namespace online.shop.api.Controllers
         }
 
         // Manage Products
-        public IActionResult ManageProducts()
+        public async Task<IActionResult> ManageProducts()
         {
-            var products = _productService.GetAllProducts(); // Assuming a product service exists
+            var products = await _productService.GetAllProductsAsync(); // Assuming a product service exists
             return View(products);
         }
 
@@ -222,14 +224,14 @@ namespace online.shop.api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateProduct(Product product)
+        public async Task<IActionResult> CreateProduct(Product product)
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("Shared/_CreateProduct", product);
+                return Json(new { success = false, message = "Failed to create product." });
             }
 
-            bool isCreated = _productService.CreateProduct(product);
+            bool isCreated = await _productService.CreateProductAsync(product);
             if (isCreated)
             {
                 return Json(new { success = true, message = "Product created successfully." });
@@ -240,43 +242,44 @@ namespace online.shop.api.Controllers
 
         // Edit Product
         [HttpGet]
-        public IActionResult EditProduct(int id)
+        public async Task<IActionResult> EditProduct(int id)
         {
-            var product = _productService.GetProductById(id);
+            var product = await _productService.GetProductByIdAsync(id);
             if (product == null)
                 return NotFound();
             return PartialView("Shared/_EditProduct", product);
         }
 
         [HttpPost]
-        public IActionResult EditProduct(Product model)
+        public async Task<IActionResult> EditProduct(Product model)
         {
             if (ModelState.IsValid)
             {
-                var updated = _productService.UpdateProduct(model);
+                var updated = await _productService.UpdateProductAsync(model);
                 if (updated)
                     return Json(new { success = true, message = "Product updated successfully." });
             }
-            return PartialView("Shared/_EditProduct", model);
+            return Json(new { success = false, message = "Failed action" });
         }
 
         [HttpGet]
-        public IActionResult DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            var product = _productService.GetProductById(id);
+            var product = await _productService.GetProductByIdAsync(id);
             if (product == null)
                 return NotFound();
             return PartialView("Shared/_DeleteProduct", product);
         }
 
         [HttpPost]
-        public IActionResult ConfirmDelete(int id)
+        public async Task<IActionResult> ConfirmDelete(int id)
         {
-            var deleted = _productService.DeleteProduct(id);
+            var deleted = await _productService.DeleteProductAsync(id);
             if (deleted)
                 return Json(new { success = true, message = "Product deleted successfully." });
 
-            return NotFound();
+            return Json(new { success = false, message = "Failed action" });
+            ;
         }
     }
 }

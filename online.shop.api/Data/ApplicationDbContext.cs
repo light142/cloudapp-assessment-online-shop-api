@@ -10,5 +10,6 @@ namespace online.shop.api.Data
             : base(options) { }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
     }
 }

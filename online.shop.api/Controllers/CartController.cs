@@ -30,10 +30,10 @@ namespace online.shop.api.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToCart([FromBody] CartItemRequest request)
+        public async Task<IActionResult> AddToCart([FromBody] CartItemRequest request)
         {
             var cart = GetCart();
-            var product = _productService.GetProductById(request.ProductId);
+            var product = await _productService.GetProductByIdAsync(request.ProductId);
 
             var quantity = request.Quantity ?? 1;
 
