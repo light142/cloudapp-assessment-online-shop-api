@@ -1,0 +1,22 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: shop-ease-app-vpa
+  namespace: default
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: shop-ease-app
+  updatePolicy:
+    updateMode: "Auto"  # Auto: Automatically adjusts resources, Initial: Only during pod creation
+  resourcePolicy:
+    containerPolicies:
+      - containerName: shop-ease-app
+        minAllowed:
+          cpu: 100m       # Minimum allowed CPU request
+          memory: 128Mi   # Minimum allowed memory request
+        maxAllowed:
+          cpu: 2000m      # Maximum allowed CPU request
+          memory: 2Gi     # Maximum allowed memory request
+        controlledResources: ["cpu", "memory"]  # Resources to control (cpu, memory)
