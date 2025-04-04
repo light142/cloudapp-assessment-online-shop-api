@@ -118,15 +118,25 @@ $(document).ready(function () {
 
 // Function to add product to cart
 function addToCart(button) {
+    const encrypt = new JSEncrypt();
+    encrypt.setPublicKey(PUBLIC_RSA_KEY);
+
     let productId = button.data("product-id");
     let quantity = $("#inner-quantity-" + productId).text(); // Get selected quantity
+
+    const payload = {
+        productId: productId,
+        quantity: parseInt(quantity)
+    };
+
+    const encrypted = encrypt.encrypt(JSON.stringify(payload));
 
     $.ajax({
         url: "/Cart/AddToCart",
         type: "POST",
         contentType: "application/json",
         headers: { "X-Requested-With": "XMLHttpRequest" },
-        data: JSON.stringify({ productId: productId, quantity: parseInt(quantity) }), // Include quantity
+        data: JSON.stringify({ EncryptedData: encrypted }),
         success: function (data) {
             if (data.success) {
                 showPopup("✅ Product added to cart!");

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using online.shop.api.Helpers;
 using online.shop.api.Models;
 using online.shop.api.Services;
 
@@ -30,8 +31,15 @@ namespace online.shop.api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToCart([FromBody] CartItemRequest request)
+        public async Task<IActionResult> AddToCart([FromBody] EncryptedRequest encryptedRequest)
         {
+            string decryptedJson = RsaCryptoHelper.Decrypt(
+                encryptedRequest.EncryptedData,
+                RsaCryptoHelper.LoadPrivateKey()
+            );
+
+            var request = JsonConvert.DeserializeObject<CartItemRequest>(decryptedJson);
+
             var cart = GetCart();
             var product = await _productService.GetProductByIdAsync(request.ProductId);
 

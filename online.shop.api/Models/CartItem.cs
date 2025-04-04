@@ -14,4 +14,9 @@ namespace online.shop.api.Models
         public int ProductId { get; set; }
         public int? Quantity { get; set; }
     }
+
+    public class EncryptedRequest
+    {
+        public string EncryptedData { get; set; }
+    }
 }
