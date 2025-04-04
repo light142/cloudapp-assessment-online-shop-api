@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using online.shop.api.Helpers;
 using online.shop.api.Models;
 using online.shop.api.Services;
 
@@ -10,10 +9,12 @@ namespace online.shop.api.Controllers
     {
         private const string CartSessionKey = "Cart";
         private readonly ProductService _productService;
+        private readonly KeyVaultService _keyVaultService;
 
-        public CartController(ProductService productService)
+        public CartController(ProductService productService, KeyVaultService keyVaultService)
         {
             _productService = productService;
+            _keyVaultService = keyVaultService;
         }
 
         public IActionResult Index()
@@ -33,10 +34,7 @@ namespace online.shop.api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart([FromBody] EncryptedRequest encryptedRequest)
         {
-            string decryptedJson = RsaCryptoHelper.Decrypt(
-                encryptedRequest.EncryptedData,
-                RsaCryptoHelper.LoadPrivateKey()
-            );
+            string decryptedJson = _keyVaultService.Decrypt(encryptedRequest.EncryptedData);
 
             var request = JsonConvert.DeserializeObject<CartItemRequest>(decryptedJson);
 

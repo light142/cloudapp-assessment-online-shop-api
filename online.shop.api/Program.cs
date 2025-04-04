@@ -44,6 +44,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<WishlistService>();
+builder.Services.AddSingleton<KeyVaultService>();
 
 // Configure Serilog
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
